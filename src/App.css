@@ -1,0 +1,470 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.background {
+  background-image: url('Components/background.jpg'); /* Utiliza la imagen importada */
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100vh; /* Ajusta la altura según necesites */
+}
+.image {
+  display: block;
+  margin:auto;
+  width: 70%;
+  height: auto;
+}
+.image-pineapple {
+  display: block;
+  margin:auto;
+  width: 30%;
+  height: auto;
+}
+.image-container {
+  margin: 0px auto;
+  background: radial-gradient(#0b5931cf, transparent);
+  border-radius: 10%;
+  border: rgba(0, 0, 0, 0.411) solid;
+}
+.container {
+  display: flex;
+}
+
+/*LOGIN*/
+.card-container{
+  width: 35%;
+    left: 30%;
+    position: absolute;
+    top: 60%;
+    transform: translate(-50%, -50%);
+}
+/*Login styles*/
+.login-input{
+  margin-top:2rem !important;
+  
+}
+.login-form-control{
+  width: 100%;
+}
+.image{
+  width: 100%;
+  
+  height: 100vh; /* Permite que crezca */
+}
+.login-forgot{
+  position: relative;
+  top: -15px;
+  left: 30%;
+}
+
+/*Main container styles*/
+.main-container{
+  display: flex;
+  height: inherit;
+}
+
+/*SideBar Styles*/
+.bar-main-container{
+  flex-direction: column;
+  position: sticky;
+  top: 0;
+}
+
+.bar-second-container{
+  margin-bottom: 8px;
+  flex:1;
+  overflow-y: auto;
+  max-height: 900px;
+}
+/*icons styles*/
+.edit-icon {
+  color:#009e72;
+}
+.delete-icon {
+  color:red;
+}
+
+/*product form styles*/
+.product-image-preview {
+  width: 200px;
+}
+/*Test profile styles*/
+.main {
+  display: grid;
+  place-items: center;
+  width: 190px;
+  height: 254px;
+}
+
+.card {
+  width: 190px;
+  height: 254px;
+  background: #FAF1F6;
+  padding: 2rem 1.5rem;
+  transition: box-shadow .3s ease, transform .2s ease;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+}
+
+.card-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-avatar {
+  background: radial-gradient(#A8A6B6,#B3B1BF,#BDBBC7,#C5C4CE,#E2E2E7);
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  transition: transform .2s ease;
+}
+
+.card-avatar svg {
+  padding-top: 5px;
+  height: 80px;
+  width: 100px;
+  fill: #515F65;
+}
+
+.card-social {
+  display: flex;
+  justify-content: space-around;
+  width: 190px;
+  margin-top: 10%;
+  text-align: center;
+}
+
+.card-social-icon {
+  list-style: none;
+  color: #515F65;
+  font-size: 0.5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-social-icon svg {
+  display: block;
+  height: 20px;
+  width: 20px;
+  fill: #515F65;
+  cursor: pointer;
+}
+
+.card-title {
+  color: #1b1b1b;
+  font-size: 1.5em;
+  font-weight: 600;
+  line-height: 2rem;
+  margin-top: 5px;
+}
+
+.card-subtitle {
+  color: #7e93a0;
+  font-size: 1.0em;
+}
+
+.address-icon {
+  fill: #515F65;
+  height: 150px;
+  width: 100px;
+  list-style: none;
+  justify-content: space-around;
+}
+
+.address-title {
+  color: #333;
+  font-size: 1.0em;
+  font-weight: 600;
+  list-style: none;
+}
+
+.address {
+  color: #859ba8;
+  font-size: 0.8em;
+  list-style: none;
+  padding-left: 20px;
+  ;
+}
+
+.contact-title {
+  color: #333;
+  font-size: 1.5em;
+  font-weight: 600;
+  margin-top: 45%;
+  padding-bottom: 5px;
+}
+
+.card-contact {
+  color: #859ba8;
+  font-size: 0.8em;
+}
+
+.icon-contact {
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+.icon-contact svg {
+  display: block;
+  height: 18px;
+  width: 18px;
+  fill: #515F65;
+  padding-right: 5px;
+}
+
+.card:hover {
+  box-shadow: 0 10px 50px #23232333;
+}
+
+.card:hover .card-info {
+  transform: translateY(-5%);
+}
+
+.card-avatar:hover {
+  transform: scale(1.1);
+}
+
+#cs1:hover {
+  transform: scale(2.0);
+}
+
+#cs2:hover {
+  transform: scale(2.0);
+}
+
+#cs3:hover {
+  transform: scale(2.0);
+}
+
+.main:hover #c1 {
+  transform: translateX(0px);
+}
+
+.main:hover #c2 {
+  transform: translateX(200px);
+}
+
+.main:hover #c3 {
+  transform: translateX(-200px);
+}
+/*Profile more large*/
+.card {
+  margin: auto;
+  margin-top: 10rem;
+  width: 400px;
+  height: 400px;
+  background: rgb(156, 33, 33);
+  border-radius: 32px;
+  padding: 3px;
+  position: relative;
+  box-shadow: #604b4a30 0px 70px 30px -50px;
+  transition: all 0.5s ease-in-out;
+}
+
+.card .mail {
+  position: absolute;
+  right: 2rem;
+  top: 1.4rem;
+  background: transparent;
+  border: none;
+}
+
+.card .mail svg {
+  stroke: #fbb9b6;
+  stroke-width: 3px;
+}
+
+.card .mail svg:hover {
+  stroke: #f55d56;
+}
+
+.card .profile-pic {
+  position: absolute;
+  width: calc(100% - 6px);
+  height: calc(100% - 6px);
+  top: 3px;
+  left: 3px;
+  border-radius: 29px;
+  z-index: 1;
+  border: 0px solid #fbb9b6;
+  overflow: hidden;
+  transition: all 0.5s ease-in-out 0.2s, z-index 0.5s ease-in-out 0.2s;
+}
+
+.card .profile-pic img {
+  -o-object-fit: cover;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  -o-object-position: 0px 0px;
+  object-position: 0px 0px;
+  transition: all 0.5s ease-in-out 0s;
+}
+
+.card .profile-pic svg {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: 0px 0px;
+  object-position: 0px 0px;
+  transform-origin: 45% 20%;
+  transition: all 0.5s ease-in-out 0s;
+}
+
+.card .bottom {
+  position: absolute;
+  bottom: 3px;
+  left: 3px;
+  right: 3px;
+  background: #110844;
+  top: 80%;
+  border-radius: 29px;
+  z-index: 2;
+  box-shadow: rgba(96, 75, 74, 0.1882352941) 0px 5px 5px 0px inset;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+}
+
+.card .bottom .content {
+  position: absolute;
+  bottom: 0;
+  left: 1.5rem;
+  right: 1.5rem;
+  height: 160px;
+}
+
+.card .bottom .content .name {
+  display: block;
+  font-size: 1.2rem;
+  color: white;
+  font-weight: bold;
+}
+
+.card .bottom .content .about-me {
+  display: block;
+  font-size: 0.9rem;
+  color: white;
+  margin-top: 1rem;
+}
+
+.card .bottom .bottom-bottom {
+  position: absolute;
+  bottom: 1rem;
+  left: 1.5rem;
+  right: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card .bottom .bottom-bottom .social-links-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.card .bottom .bottom-bottom .social-links-container svg {
+  height: 20px;
+  fill: white;
+  filter: drop-shadow(0 5px 5px rgba(165, 132, 130, 0.1333333333));
+}
+
+.card .bottom .bottom-bottom .social-links-container svg:hover {
+  fill: #f55d56;
+  transform: scale(1.2);
+}
+
+.card .bottom .bottom-bottom .button {
+  background: white;
+  color: #fbb9b6;
+  border: none;
+  border-radius: 20px;
+  font-size: 0.6rem;
+  padding: 0.4rem 0.6rem;
+  box-shadow: rgba(165, 132, 130, 0.1333333333) 0px 5px 5px 0px;
+}
+
+.card .bottom .bottom-bottom .button:hover {
+  background: #380a74;
+  color: white;
+}
+
+.card:hover {
+  border-top-left-radius: 55px;
+}
+
+.card:hover .bottom {
+  top: 20%;
+  border-radius: 80px 29px 29px 29px;
+  transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0.2s;
+}
+
+.card:hover .profile-pic {
+  width: 100px;
+  height: 100px;
+  aspect-ratio: 1;
+  top: 10px;
+  left: 10px;
+  border-radius: 50%;
+  z-index: 3;
+  border: 7px solid #11044d;
+  box-shadow: rgba(96, 75, 74, 0.1882352941) 0px 5px 5px 0px;
+  transition: all 0.5s ease-in-out, z-index 0.5s ease-in-out 0.1s;
+}
+
+.card:hover .profile-pic:hover {
+  transform: scale(1.3);
+  border-radius: 0px;
+}
+
+.card:hover .profile-pic img {
+  transform: scale(1.4);
+  object-position: 0px 0px;
+  
+  transition: all 0.5s ease-in-out 0.5s;
+}
+
+.card:hover .profile-pic svg {
+  transform: scale(2.5);
+  transition: all 0.5s ease-in-out 0.5s;
+}

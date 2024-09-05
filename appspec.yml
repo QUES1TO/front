@@ -1,0 +1,18 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /var/www/html/cicd/
+hooks:
+  BeforeInstall:
+    - location: scripts/install_dependencies.bash
+      timeout: 300
+      runas: root
+  AfterInstall:
+    - location: scripts/start_server.bash
+      timeout: 300
+      runas: root
+  ApplicationStart:
+    - location: scripts/restart_server.bash
+      timeout: 300
+      runas: root
