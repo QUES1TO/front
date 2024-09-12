@@ -52,7 +52,7 @@ const GuardarComponentController = () => {
                 procesarRespuesta1(json);
                 if(json.code=200)
                     {
-                        navigate("/home1");
+                        navigate("/login");
                     }
             }).catch(response=>{
                 console.log(response);
