@@ -1,91 +1,59 @@
 import React from "react";
-import { Sidebar, Menu, MenuItem, SubMenu, sidebarClasses } from "react-pro-sidebar";
-import { IconButton } from "@mui/material";
+import { Sidebar, Menu, MenuItem, sidebarClasses } from "react-pro-sidebar";
+import { AppBar, IconButton } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import AdUnitsIcon from '@mui/icons-material/AdUnits';
-import Badge from "@mui/material/Badge";
+import HomeIcon from '@mui/icons-material/Home';
 import { useNavigate } from "react-router-dom";
-const SideBarComponent = ({changeCollapse,collapsed,authenticated}) => {
+import LOGO from '../img/LOGO.png';  // Ruta a la imagen de fondo
+
+
+const SideBarComponent = ({ changeCollapse, collapsed, authenticated }) => {
     const navigate = useNavigate();
+
     return (
         <>
-            { authenticated && <Sidebar
-            collapsed={collapsed}
-            rootStyles={{
-                height:'inherit',
-                [`.${sidebarClasses.container}`]:{
-                    overflowX:'visible',
-                    overflowY:'visible'
-                },
-                padding:'0px'
-            }}
-            >               
-                <div className="bar-main-container">
-                    <IconButton aria-label="menu" onClick={changeCollapse}>
-                        <MenuIcon/>
-                    </IconButton>
-                    <div className="bar-second-container">
-                        <Menu className="side-bar-menu">
-                            <h1>Mi primer menu</h1>
-                            <SubMenu
-                            label="Primer texto sub menu"
-                            icon={<AdUnitsIcon/>}>
-                                <h1>Mi primer sub menu</h1>
-                                <MenuItem onClick={()=>{navigate("/home")}}>Item numero 1</MenuItem>
-                            </SubMenu>
-                            <SubMenu>
-                                <h1>Mi primer sub menu</h1>
-                                <MenuItem onClick={()=>{navigate("/home2")}}>Item numero 2</MenuItem>
-                            </SubMenu>
-                            <SubMenu>
-                                <h1>Mi primer sub menu</h1>
-                                <MenuItem>Item numero 1</MenuItem>
-                            </SubMenu>
-                            <SubMenu>
-                                <h1>Mi primer sub menu</h1>
-                                <MenuItem>Item numero 1<Badge badgeContent={8} color="error"/></MenuItem>
-                            </SubMenu>
-                            <SubMenu>
-                                <h1>Mi primer sub menu</h1>
-                                <MenuItem>Item numero 1</MenuItem>
-                            </SubMenu>
-                            <SubMenu>
-                                <h1>Mi primer sub menu</h1>
-                                <MenuItem>Item numero 1</MenuItem>
-                            </SubMenu>
-                            <SubMenu>
-                                <h1>Mi primer sub menu</h1>
-                                <MenuItem>Item numero 1</MenuItem>
-                            </SubMenu>
-                            <SubMenu>
-                                <h1>Mi primer sub menu</h1>
-                                <MenuItem>Item numero 1</MenuItem>
-                            </SubMenu>
-                            <SubMenu>
-                                <h1>Mi primer sub menu</h1>
-                                <MenuItem>Item numero 1</MenuItem>
-                            </SubMenu>
-                            <SubMenu>
-                                <h1>Mi primer sub menu</h1>
-                                <MenuItem>Item numero 1</MenuItem>
-                            </SubMenu>
-                            <SubMenu>
-                                <h1>Mi primer sub menu</h1>
-                                <MenuItem>Item numero 1</MenuItem>
-                            </SubMenu>
-                            <SubMenu>
-                                <h1>Mi primer sub menu</h1>
-                                <MenuItem>Item numero 1</MenuItem>
-                            </SubMenu>
-                            <SubMenu>
-                                <h1>Mi primer sub menu</h1>
-                                <MenuItem>Item numero 1</MenuItem>
-                            </SubMenu>
+        
+            {authenticated && (
+                <div className={`sidebar-container`} style={{ width: collapsed ? '80px' : '250px' }}>
+
+                    
+                    <div className="sidebar-title">-.-
+        <img className='sidebar-logo' src={LOGO} alt="Background" />
+        </div>
+        
+                    <Sidebar
+                        collapsed={collapsed}
+                        rootStyles={{
+                            height: 'inherit',
+                            [`.${sidebarClasses.container}`]: {
+                                overflowX: 'visible',
+                                overflowY: 'visible',
+                                backgroundColor: 'inherit',
+                            },
+                        }}
+                        
+                    >
+                        
+                        <Menu>
+                            <MenuItem icon={<HomeIcon />} onClick={() => navigate("/home")} className="sidebar-menu-item">
+                                Inicio
+                            </MenuItem>
+                            <MenuItem icon={<AdUnitsIcon />} onClick={() => navigate("/about")} className="sidebar-menu-item">
+                                Acerca de
+                            </MenuItem>
+                            <MenuItem icon={<AdUnitsIcon />} onClick={() => navigate("/services")} className="sidebar-menu-item">
+                                Servicios
+                            </MenuItem>
+                            <MenuItem icon={<AdUnitsIcon />} onClick={() => navigate("/contact")} className="sidebar-menu-item">
+                                Contacto
+                            </MenuItem>
                         </Menu>
-                    </div>
+                    </Sidebar>
                 </div>
-            </Sidebar>}
+            )}
         </>
     );
-}
+};
+
 export default SideBarComponent;

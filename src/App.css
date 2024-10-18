@@ -169,3 +169,62 @@ button:hover {
 }
 
 /*SideBar Styles*/
+/* SideBarComponent.css */
+
+/* Estilo del contenedor principal de la barra lateral */
+/* SideBarComponent.css */
+
+/* Estilo del contenedor principal de la barra lateral */
+.sidebar-container {
+  background-color: #500505; /* Fondo rojo oscuro */
+  height: 100vh;
+  padding: 10px;
+  color: #fff; /* Texto blanco */
+  transition: width 0.3s ease; /* Transición al colapsar */
+  overflow: hidden;
+  position: fixed; /* Fija la posición del sidebar */
+}
+
+/* Estilo para los ítems del menú */
+.sidebar-menu-item {
+  padding: 10px 20px;
+  color: #ffffff; /* Texto blanco por defecto */
+  font-size: 16px;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease; /* Transición suave */
+  background-color: transparent; /* Asegúrate de que el fondo sea transparente */
+}
+
+/* Cambios al hacer hover sobre los ítems */
+.sidebar-menu-item:hover {
+  background-color: #ffffff; /* Fondo blanco al hacer hover */
+  color: #000000; /* Texto rojo al hacer hover */
+  transform: scale(1.05); /* Efecto de agrandamiento en hover */
+}
+
+/* Estilo para el botón del menú */
+.sidebar-button {
+  color: #ffffff;
+}
+
+.sidebar-button:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Fondo gris claro al hacer hover */
+  transition: background-color 0.3s ease;
+}
+.sidebar-title {
+  height: 7vh; /* Altura del 3% de la ventana */
+  padding: 10px; /* Padding para el título */
+  display: flex; /* Utiliza flexbox para centrar contenido */
+  align-items: center; /* Centra verticalmente el contenido */
+  color: #fff; /* Color del texto */
+  font-size: 18px; /* Tamaño del texto */
+  background-color: #500505; /* Fondo rojo oscuro */
+}
+.sidebar-logo {
+  position: absolute;
+  height: 15vh; /* Altura del 3% de la ventana */
+  padding: 10px; /* Padding para el título */
+  left: 0%;
+  top: -2%;
+  z-index: 1;
+}
+
