@@ -169,12 +169,6 @@ button:hover {
 }
 
 /*SideBar Styles*/
-/* SideBarComponent.css */
-
-/* Estilo del contenedor principal de la barra lateral */
-/* SideBarComponent.css */
-
-/* Estilo del contenedor principal de la barra lateral */
 .sidebar-container {
   background-color: #500505; /* Fondo rojo oscuro */
   height: 100vh;
@@ -227,4 +221,56 @@ button:hover {
   top: -2%;
   z-index: 1;
 }
+
+/*main Styles*/
+
+.main {
+  position: relative;
+  
+  display: flex;
+  left: 300px;
+  top: 10px;
+  
+}
+
+.table-and-button {
+  display: flex;
+  flex-direction: column; /* Mantiene los elementos uno debajo del otro */
+  align-items: flex-end; /* Alinea todo a la derecha */
+}
+
+.custom-table {
+  width: 100%;
+}
+
+.button-container {
+  margin-top: 20px;
+}
+.add-user-button {
+  background-color: #750808;
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: fixed; /* Mantiene el botón en una posición fija */
+  bottom: 20px; /* Distancia desde la parte inferior de la pantalla */
+  right: 20px; /* Distancia desde la parte derecha de la pantalla */
+}
+
+.add-user-button:hover {
+  background-color: #000000;
+  color: rgb(255, 255, 255);
+}
+.main-image {
+  position: absolute;
+  top: -5%;
+  left: -10%;
+  width: 110%;
+  height: 105%;
+
+  z-index: -1;
+}
+
 

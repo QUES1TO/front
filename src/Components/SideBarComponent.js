@@ -36,17 +36,17 @@ const SideBarComponent = ({ changeCollapse, collapsed, authenticated }) => {
                     >
                         
                         <Menu>
-                            <MenuItem icon={<HomeIcon />} onClick={() => navigate("/home")} className="sidebar-menu-item">
-                                Inicio
+                            <MenuItem icon={<HomeIcon />} onClick={() => navigate("/perfil")} className="sidebar-menu-item">
+                                informacion
                             </MenuItem>
-                            <MenuItem icon={<AdUnitsIcon />} onClick={() => navigate("/about")} className="sidebar-menu-item">
-                                Acerca de
+                            <MenuItem icon={<AdUnitsIcon />} onClick={() => navigate("/home")} className="sidebar-menu-item">
+                                Usuarios
                             </MenuItem>
-                            <MenuItem icon={<AdUnitsIcon />} onClick={() => navigate("/services")} className="sidebar-menu-item">
-                                Servicios
+                            <MenuItem icon={<AdUnitsIcon />} onClick={() => navigate("/producto")} className="sidebar-menu-item">
+                                Productos
                             </MenuItem>
-                            <MenuItem icon={<AdUnitsIcon />} onClick={() => navigate("/contact")} className="sidebar-menu-item">
-                                Contacto
+                            <MenuItem icon={<AdUnitsIcon />} onClick={() => navigate("/inventario")} className="sidebar-menu-item">
+                                Inventario
                             </MenuItem>
                         </Menu>
                     </Sidebar>

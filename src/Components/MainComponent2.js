@@ -36,43 +36,46 @@ const MainComponent2 = ({data,handleOpen,handleClose,open,selectedProductName,ha
   console.log(selectedProductName);
     return (
         <>
-            
+       
+       <div className="btnlistcompra">
+        <Button  >
+        <a href="/listSelect"><h1>PRECIO</h1>  </a>
+            </Button>
+                      </div>
+                      
                 <div className="main-body">
+                <h1>PRODUCTOS</h1>
                 {data.map((row) => (
                     <Card sx={{ maxWidth: 345 }}>
-                    <CardHeader
+                    <CardHeader className=""
                       avatar={
                         <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
                           R
                         </Avatar>
                       }
-                      action={
-                        <IconButton aria-label="settings">
-                          <MoreVertIcon />
-                        </IconButton>
-                      }
-                      title={row.product_name}
-                      subheader="September 14, 2016"
+                     
+                      title={row.nombre}
+                    
                     />
-                    <CardMedia
+                    <CardMedia className="prp"
                       component="img"
                       height="194"
-                      image={`http://localhost:8000/storage/${row.product_url_image}`}
+                      image={`http://localhost:8000/storage/${row.url_imagen}`}
                       alt="Paella dish"
                     />
                     <CardContent>
                       <Typography variant="body2" color="text.secondary">
-                        This impressive paella is a perfect party dish and a fun meal to cook
-                        together with your guests. Add 1 cup of frozen peas along with the mussels,
-                        if you like.
+                      <h3>MOTOR:{row.cc} _____
+                          AÑO: {row.modelo} ________
+                          MARCA:{row.marca}</h3>
+                          <h3>{row.descripcion}</h3>
+                          <h1>{row.precio}</h1>
                       </Typography>
                     </CardContent>
-                    <CardActions disableSpacing>
+                    <CardActions className="" disableSpacing>
                       <IconButton aria-label="add to favorites" onClick={()=>handleOpen(row)}>
                         <CarIcon />
-                      </IconButton>
-                      <IconButton aria-label="share">
-                        <ShareIcon />
+                     
                       </IconButton>        
                     </CardActions>
                     
@@ -104,10 +107,13 @@ const MainComponent2 = ({data,handleOpen,handleClose,open,selectedProductName,ha
                                 <Button onClick={addToCart} variant="outlined" >
                                     Añadir al carrito
                                 </Button>
+                              
                             </FormControl>
                         </form>
                     </Box>
                   </Modal>
+                  
+                
                 {localStorage.setItem("current_route","/home2")}          
         </>
     );

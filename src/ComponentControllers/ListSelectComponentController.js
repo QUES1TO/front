@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
-import MainComponent from "../Components/MainComponent";
+import ListSelectComponent from "../Components/ListSelectComponent";
 import api from "../Http/api";
-const createData = (id,nombre,email,password) => {
-    return {id,nombre,email,password};
+const createData = (id,total) => {
+    return {id,total};
 }
-const MainComponentController = () => {
+const ListSelectComponentController = () => {
     const [data, setData] = useState([]);
     useEffect( ()=>{
-        api.userData()
+        api.caritoData()
             .then(response =>{
                 return response.json()
             }).then(json=>{
@@ -23,9 +23,9 @@ const MainComponentController = () => {
 
     return (
         <>
-        <MainComponent
+        <ListSelectComponent
         data={data}/>
         </>
     );
 }
-export default MainComponentController;
+export default ListSelectComponentController;

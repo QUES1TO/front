@@ -9,10 +9,9 @@ const MainComponentController2 = () => {
     const [selectedProductName,setSelectedProductName] =useState("");
     const [selectedProductAmount,setSelectedProductAmount] = useState("");
     const [open, setOpen] = useState(false);
-  
-
+    
     useEffect( ()=>{
-        api.productData(authenticationData.token)
+        api.productoData2(authenticationData.token)
             .then(response =>{
                 return response.json()
             }).then(json=>{
@@ -29,14 +28,14 @@ const MainComponentController2 = () => {
       { 
         setOpen(true);
         setSelectedId(row.id);
-        setSelectedProductName(row.product_name);
+        setSelectedProductName(row.nombre);
       }
       const handleClose = () => setOpen(false);
       const handleProductAmount = (e) => {
         setSelectedProductAmount(e.target.value);
       }
       const addToCart = () => {
-        let currentCart = localStorage.getItem("cart_id"); 
+        let currentCart = localStorage.getItem("carito_id"); 
         if(currentCart==null)
         {
             currentCart = 0;
@@ -55,7 +54,7 @@ const MainComponentController2 = () => {
       const procesarRespuesta=(json)=>{
         if(json.code==201)
         {
-            localStorage.setItem("cart_id",json.body.cart_id);
+            localStorage.setItem("carito_id",json.body.carito_id);
             handleClose();
         }
       }

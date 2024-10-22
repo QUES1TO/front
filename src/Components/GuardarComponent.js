@@ -56,31 +56,7 @@ const GuardarComponent = ({
                                     required
                                 />
                                 {nameErrorState && <FormHelperText error>{nameErrorMessage}</FormHelperText>}
-                                <br />
-                                <TextField
-                                    className="login-input"
-                                    id="last-name"
-                                    label="Apellido"
-                                    variant="outlined"
-                                    placeholder="Introduzca su Apellido"
-                                    error={last_nameErrorState}
-                                    onChange={handleLast_nameChange}
-                                    required
-                                />
-                                {last_nameErrorState && <FormHelperText error>{last_nameErrorMessage}</FormHelperText>}
-                                <br />
-                                <TextField
-                                    className="login-input"
-                                    id="address"
-                                    label="Dirección"
-                                    variant="outlined"
-                                    placeholder="Introduzca su Dirección"
-                                    error={addressErrorState}
-                                    onChange={handleAddressChange}
-                                    required
-                                />
-                                {addressErrorState && <FormHelperText error>{addressErrorMessage}</FormHelperText>}
-                                <br />
+                               
                                 <TextField
                                     className="login-input"
                                     id="email"

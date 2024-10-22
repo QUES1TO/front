@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -9,49 +10,55 @@ import Paper from '@mui/material/Paper';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { IconButton } from "@mui/material";
+import main from '../img/eh.avif';  // Ruta a la imagen de fondo
 
-const MainComponent = ({data,handleEdit}) => {
+const MainComponent = ({ data, handleEdit, handleDelete }) => {
     return (
-        <>
-            
-                <div className="main-body">
-                <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
-        <TableHead>
-          <TableRow>
-            <TableCell>Dessert (100g serving)</TableCell>
-            <TableCell align="right">Calories</TableCell>
-            <TableCell align="right">Fat&nbsp;(g)</TableCell>
-            <TableCell align="right">Carbs&nbsp;(g)</TableCell>       
-            <TableCell align="right">Options</TableCell>  
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {data.map((row) => (
-            <TableRow
-              key={row.name}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-            >
-              <TableCell component="th" scope="row">
-                {row.name}
-              </TableCell>
-              <TableCell align="right">{row.product_name}</TableCell>
-              <TableCell align="right">{row.id}</TableCell>
-              <TableCell align="right">{row.product_price}</TableCell>           
-              <TableCell align="right">
-                
-                <IconButton onClick={()=>handleEdit(row)}><EditIcon className="edit-icon"/></IconButton>
-                <IconButton/><DeleteIcon className="delete-icon"/>
-                </TableCell>          
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
-                    
-                </div>
-            {localStorage.setItem("current_route","/home")}
-        </>
+      
+      
+        <div className="main">
+          <img className='main-image' src={main} alt="Background" />
+            <div className="table-and-button">
+                <TableContainer component={Paper} sx={{ boxShadow: '0 4px 8px rgba(0,0,0,5.1)', borderRadius: 2 }}>
+                    <Table className="custom-table" sx={{ minWidth: 650 }}>
+                        <TableHead>
+                            <TableRow sx={{ backgroundColor: '#8f0606' }}>
+                                <TableCell align="right" sx={{ color: 'white', fontWeight: 'bold' }}>ID</TableCell>
+                                <TableCell align="right" sx={{ color: 'white', fontWeight: 'bold' }}>Name</TableCell>
+                                <TableCell align="right" sx={{ color: 'white', fontWeight: 'bold' }}>Email</TableCell>
+                                <TableCell align="right" sx={{ color: 'white', fontWeight: 'bold' }}>Options</TableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            {data.map((row) => (
+                                <TableRow key={row.id} sx={{
+                                    '&:nth-of-type(odd)': { backgroundColor: '#f5f5f5' },
+                                    '&:hover': { backgroundColor: '#e0f7fa' }
+                                }}>
+                                    <TableCell component="th" scope="row">{row.id}</TableCell>
+                                    <TableCell align="right">{row.name}</TableCell>
+                                    <TableCell align="right">{row.email}</TableCell>
+                                    <TableCell align="right">
+                                        <IconButton onClick={() => handleEdit(row.id)} sx={{ color: '#1976d2' }}>
+                                            <EditIcon />
+                                        </IconButton>
+                                        <IconButton onClick={() => handleDelete(row.id)} sx={{ color: '#d32f2f' }}>
+                                            <DeleteIcon />
+                                        </IconButton>
+                                    </TableCell>
+                                </TableRow>
+                            ))}
+                        </TableBody>
+                    </Table>
+                </TableContainer>
+            </div>
+            <div className="button-container">
+                <Link to="/guardar">
+                    <button className="add-user-button">AGREGAR NUEVO USUARIO</button>
+                </Link>
+            </div>
+        </div>
     );
 }
+
 export default MainComponent;
