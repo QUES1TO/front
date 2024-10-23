@@ -225,8 +225,7 @@ button:hover {
 /*main Styles*/
 
 .main {
-  position: relative;
-  
+  position: absolute;
   display: flex;
   left: 300px;
   top: 10px;
@@ -267,10 +266,103 @@ button:hover {
   position: absolute;
   top: -5%;
   left: -10%;
-  width: 110%;
+  width: 195%;
+  height: 105%;
+
+  z-index: -1;
+}
+.main-imagee {
+  position: absolute;
+  top: -5%;
+  left: -10%;
+  width: 255%;
   height: 105%;
 
   z-index: -1;
 }
 
 
+
+
+
+
+/* guardar producto Styles */
+#crearproducto {
+  /* Estilos para el card */
+  padding: 20px;
+  margin: 20px;
+  background-color: #630505;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.crear-producto-title {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.custom-table {
+  width: 100%;
+}
+
+.login-input {
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+/* Específicos para cada campo */
+.nombre-input {
+  background-color: #000000;
+}
+
+.calidad-input {
+  background-color: #000000;
+}
+
+.modelo-input {
+  background-color: #000000;
+}
+
+.lado-input {
+  background-color: #000000;
+}
+
+.imagen-input {
+  background-color: #000000;
+}
+
+.stock-input {
+  background-color: #000000;
+}
+
+.descripcion-input {
+  background-color: #000000;
+}
+
+.precio-input {
+  background-color: #000000;
+}
+
+.tipo-input {
+  background-color: #000000;
+}
+
+.add-user-buttonATRAS {
+  background-color: #750808;
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: fixed; /* Mantiene el botón en una posición fija */
+  bottom: 20px; /* Distancia desde la parte inferior de la pantalla */
+  right: 250px; /* Distancia desde la parte derecha de la pantalla */
+}
+
+.add-user-buttonATRAS:hover {
+  background-color: #000000;
+  color: rgb(255, 255, 255);
+}

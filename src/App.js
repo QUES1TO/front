@@ -11,6 +11,7 @@ import ProfileComponentController from "./ComponentControllers/ProfileComponentC
 import GuardarComponentController from "./ComponentControllers/GuardarComponentController";
 import GuardarProductoComponentController from "./ComponentControllers/GuardarProductoComponentController";
 import ListSelectComponentController from "./ComponentControllers/ListSelectComponentController";
+import MarcaComponentController from "./ComponentControllers/MarcaComponentController";
 
 import auth from "./Auth/auth";
 const App = () => {
@@ -69,7 +70,8 @@ const App = () => {
       <div className="main-container">
         <SideBarComponentController authenticated={authenticated}/>
         <Routes>
-          <Route path='/' element={<Navigate to="/home"/>}/>   
+          <Route path='/' element={<Navigate to="/home"/>}/>  
+          <Route path='/producto' Component={MarcaComponentController}/> 
           <Route path='/login' Component={loginTarget}/> 
             
           <Route element={<PrivateRoutes/>}>
@@ -77,7 +79,7 @@ const App = () => {
            
             <Route path='/edit/:id' Component={EditProductComponentController}/>
             <Route path='/perfil' Component={ProfileComponentController}/>
-            <Route path='/producto' Component={MainComponentController2}/>
+            <Route path='/produco' Component={MainComponentController2}/>
             <Route path='/listSelect' Component={ListSelectComponentController}/>
             
           </Route>    
