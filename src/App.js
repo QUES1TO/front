@@ -12,6 +12,7 @@ import GuardarComponentController from "./ComponentControllers/GuardarComponentC
 import GuardarProductoComponentController from "./ComponentControllers/GuardarProductoComponentController";
 import ListSelectComponentController from "./ComponentControllers/ListSelectComponentController";
 import MarcaComponentController from "./ComponentControllers/MarcaComponentController";
+import MainComponentController3 from './ComponentControllers/MainComponentController3';
 
 import auth from "./Auth/auth";
 const App = () => {
@@ -81,7 +82,7 @@ const App = () => {
             <Route path='/perfil' Component={ProfileComponentController}/>
             <Route path='/produco' Component={MainComponentController2}/>
             <Route path='/listSelect' Component={ListSelectComponentController}/>
-            
+            <Route path='/home3' Component={MainComponentController3}/>
           </Route>    
           <Route path='/guardar' Component={GuardarComponentController}/> 
           <Route path='/nuevoproducto' Component={GuardarProductoComponentController}/>

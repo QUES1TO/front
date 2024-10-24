@@ -37,14 +37,14 @@ const MainComponent2 = ({data,handleOpen,handleClose,open,selectedProductName,ha
     return (
         <>
        
-       <div className="btnlistcompra">
+       <div className="main">
         <Button  >
         <a href="/listSelect"><h1>PRECIO</h1>  </a>
             </Button>
                       </div>
                       
-                <div className="main-body">
-                <h1>PRODUCTOS</h1>
+                <div className="main">
+                
                 {data.map((row) => (
                     <Card sx={{ maxWidth: 345 }}>
                     <CardHeader className=""

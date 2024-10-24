@@ -17,7 +17,7 @@ const ListSelectComponent = ({data,handleEdit}) => {
     return (
         <>
         
-<div className="cobr">
+<div className="main">
                 <div className="">
 
                 <h1 className="pag">TOTAL A COBRAR </h1>

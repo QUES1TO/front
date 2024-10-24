@@ -16,12 +16,15 @@ import changan from '../img/changan.png';
 import subaru from '../img/subaru.png';
 import foton from '../img/foton.png';
 import chery from '../img/chery.png';
+import main from '../img/eh.avif';  // Ruta a la imagen de fondo
 
 // Contenedor principal
 const MainContainer = styled('div')({
     display: 'flex',
     padding: '20px',
-    backgroundColor: '#f5f5f5',
+    background: `url(${main}) no-repeat center center fixed`, // Establece la imagen de fondo
+    backgroundSize: 'cover', // Ajusta la imagen para cubrir el área
+    minHeight: '100vh', // Asegura que el contenedor cubra al menos la altura de la ventana
 });
 
 // Contenedor para la barra de búsqueda y la barra de bienvenida
@@ -34,7 +37,7 @@ const LeftContainer = styled('div')({
 
 // Barra de bienvenida
 const WelcomeBar = styled('div')({
-    backgroundColor: '#007BFF',
+    backgroundColor: 'rgba(0, 123, 255, 0.8)', // Agrega opacidad para mayor contraste
     color: '#fff',
     padding: '10px 20px',
     borderRadius: '5px',
@@ -69,6 +72,9 @@ const MarcaContainer = styled('div')({
 
 // Estilo para cada botón de marca
 const MarcaButton = styled('button')({
+    display: 'flex',
+    flexDirection: 'row', // Cambia a fila
+    alignItems: 'center', // Centra verticalmente el contenido
     background: 'none',
     border: 'none',
     cursor: 'pointer',
@@ -76,13 +82,25 @@ const MarcaButton = styled('button')({
     transition: 'transform 0.3s',
     '&:hover': {
         transform: 'scale(1.1)',
-    }
+    },
 });
 
 // Estilo para las imágenes de las marcas
 const MarcaImage = styled('img')({
     width: '100px',
     height: 'auto',
+    backgroundColor: 'rgba(255, 255, 255, 0.5)', // Fondo blanco semitransparente
+    borderRadius: '5px', // Bordes redondeados
+    padding: '5px', // Espacio alrededor de la imagen
+});
+
+
+// Estilo para el número de la marca
+const MarcaNumber = styled('span')({
+    marginLeft: '10px', // Espacio a la izquierda del número
+    fontSize: '16px',
+    fontWeight: 'bold',
+    color:'white',
 });
 
 const MarcaComponent = ({ userData }) => {
@@ -90,54 +108,63 @@ const MarcaComponent = ({ userData }) => {
 
     // Lista de marcas
     const marcas = [
-        { src: toyota, alt: 'Toyota' },
-        { src: suzuki, alt: 'Suzuki' },
-        { src: bmw, alt: 'BMW' },
-        { src: nissan, alt: 'Nissan' },
-        { src: ford, alt: 'Ford' },
-        { src: jac, alt: 'Jac' },
-        { src: honda, alt: 'Honda' },
-        { src: fiat, alt: 'Fiat' },
-        { src: jeep, alt: 'Jeep' },
-        { src: renault, alt: 'Renault' },
-        { src: changan, alt: 'Changan' },
-        { src: chebro, alt: 'Chebro' },
-        { src: subaru, alt: 'Subaru' },
-        { src: foton, alt: 'Foton' },
-        { src: chery, alt: 'Chery' }
+        { src: toyota, alt: 'Toyota', route: '/produco' },    // 1
+        { src: suzuki, alt: 'Suzuki', route: '/suzuki' },    // 2
+        { src: bmw, alt: 'BMW', route: '/bmw' },              // 3
+        { src: nissan, alt: 'Nissan', route: '/nissan' },    // 4
+        { src: ford, alt: 'Ford', route: '/ford' },          // 5
+        { src: jac, alt: 'Jac', route: '/jac' },              // 6
+        { src: honda, alt: 'Honda', route: '/honda' },        // 7
+        { src: fiat, alt: 'Fiat', route: '/fiat' },           // 8
+        { src: jeep, alt: 'Jeep', route: '/jeep' },           // 9
+        { src: renault, alt: 'Renault', route: '/renault' },  // 10
+        { src: changan, alt: 'Changan', route: '/changan' },  // 11
+        { src: chebro, alt: 'Chebro', route: '/chebro' },     // 12
+        { src: subaru, alt: 'Subaru', route: '/subaru' },     // 13
+        { src: foton, alt: 'Foton', route: '/foton' },        // 14
+        { src: chery, alt: 'Chery', route: '/chery' }         // 15
     ];
 
     return (
         <MainContainer>
             {/* Contenedor a la izquierda con la barra de búsqueda */}
             <LeftContainer>
-                {/* Barra de bienvenida encima de la barra de búsqueda */}
-                <WelcomeBar>
-                    ¡Bienvenido! Elige una marca para obtener más información.
-                </WelcomeBar>
-                {/* Barra de búsqueda */}
                 <SearchBar>
                     <input type="text" placeholder="Buscar marca..." />
                 </SearchBar>
             </LeftContainer>
 
-            {/* Contenedor de las marcas */}
             <MarcaContainer>
+            <WelcomeBar
+                    style={{
+                        backgroundColor: '#750808',
+                        color: 'white',
+                        padding: '20px',
+                        textAlign: 'center',
+                        fontSize: '1.5rem',
+                        borderRadius: '10px',
+                        boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+                        fontFamily: 'Arial, sans-serif',
+                        width: '300%',
+                        maxWidth: '1000px',
+                    }}
+                >
+                    ¡Bienvenido! Elige una marca para obtener más información.
+                </WelcomeBar>
+                <p></p><p></p>
                 {marcas.map((marca, index) => (
-                    <div key={index} onClick={() => navigate("/perfil")}>
+                    <div key={index} onClick={() => navigate(marca.route)}>
                         <MarcaButton>
                             <MarcaImage src={marca.src} alt={marca.alt} />
+                            <MarcaNumber>{index + 1}</MarcaNumber> {/* Muestra el número de la marca */}
                         </MarcaButton>
                     </div>
                 ))}
-
             </MarcaContainer>
-            
-                    <button className="add-user-button" onClick={() => navigate("/nuevoproducto")}>
-                        AGREGAR NUEVO PRODUCTO</button>
-                
-            
-            
+
+            <button className="add-user-button" onClick={() => navigate("/nuevoproducto")}>
+                AGREGAR NUEVO PRODUCTO
+            </button>
         </MainContainer>
     );
 }

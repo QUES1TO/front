@@ -27,7 +27,7 @@ const GuardarProductComponent = ({
         <>
         <body className="main">
 
-        <img className='main-imagee' src={main} alt="Background" />
+        <img className='main-image' src={main} alt="Background" />
           
             <div className="">
 
@@ -113,7 +113,7 @@ const GuardarProductComponent = ({
                     id="outlined-basic" 
                     label="Marca de auto" 
                     variant="outlined" 
-                    placeholder="Introduzca el tipo" 
+                    placeholder="Introduzca el numero de la marca" 
                     onChange={handleChangeCategoria}
                 />
                 
@@ -128,7 +128,9 @@ const GuardarProductComponent = ({
           
                
                     <button onClick={handleSaveData} variant="outlined"  className="add-user-button">CREAR PRODUCTO</button>
-                    
+                    <div>
+                       
+                    </div>
             </body>
         </>
     );

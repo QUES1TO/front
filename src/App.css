@@ -263,24 +263,14 @@ button:hover {
   color: rgb(255, 255, 255);
 }
 .main-image {
-  position: absolute;
+  position: fixed;
   top: -5%;
   left: -10%;
-  width: 195%;
-  height: 105%;
+  width: 120%;
+  height: 110%;
 
   z-index: -1;
 }
-.main-imagee {
-  position: absolute;
-  top: -5%;
-  left: -10%;
-  width: 255%;
-  height: 105%;
-
-  z-index: -1;
-}
-
 
 
 
@@ -366,3 +356,4 @@ button:hover {
   background-color: #000000;
   color: rgb(255, 255, 255);
 }
+
