@@ -13,6 +13,10 @@ import GuardarProductoComponentController from "./ComponentControllers/GuardarPr
 import ListSelectComponentController from "./ComponentControllers/ListSelectComponentController";
 import MarcaComponentController from "./ComponentControllers/MarcaComponentController";
 import MainComponentController3 from './ComponentControllers/MainComponentController3';
+import InicioComponentController from "./ComponentControllers/InicioComponentController";
+import NosotrosComponentController from "./ComponentControllers/NosotrosComponentController";
+import ProductoComponentController from "./ComponentControllers/ProductoComponentController";
+import NoticiasComponentController from "./ComponentControllers/NoticiasComponentController";
 
 import auth from "./Auth/auth";
 const App = () => {
@@ -71,8 +75,12 @@ const App = () => {
       <div className="main-container">
         <SideBarComponentController authenticated={authenticated}/>
         <Routes>
+        <Route path='/inicio' Component={InicioComponentController}/>
+        <Route path='/nosotros' Component={NosotrosComponentController}/>
+        <Route path='/productos' Component={ProductoComponentController}/>
+        <Route path='/noticias' Component={NoticiasComponentController}/>
           <Route path='/' element={<Navigate to="/home"/>}/>  
-          <Route path='/producto' Component={MarcaComponentController}/> 
+          <Route path='/produo' Component={MarcaComponentController}/> 
           <Route path='/login' Component={loginTarget}/> 
             
           <Route element={<PrivateRoutes/>}>

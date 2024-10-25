@@ -256,10 +256,14 @@ const MainComponent2 = ({ data, handleOpen, handleClose, open, selectedProductNa
                             </StyledCard>
                         ))
                     ) : (
-                        <Typography variant="body2" color="text.secondary">
-                            No se encontraron resultados.
-                        </Typography>
+                        <Typography variant="h4" color="error" position="fixed" top='100px'  left='34%' sx={{ fontWeight: 'bold', marginTop: 4 }}>
+                        No hay productos disponibles.
+                    </Typography>
                     )}
+
+
+
+
                 </div>
             </div>
 

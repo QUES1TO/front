@@ -44,15 +44,11 @@ const SideBarComponent = ({ changeCollapse, collapsed, authenticated }) => {
                             <MenuItem icon={<InventoryIcon />} onClick={() => navigate("/home3")} className="sidebar-menu-item">
                                 Inventario
                             </MenuItem>
-                            <MenuItem icon={<AdUnitsIcon />} onClick={() => navigate("/inventario/gestionar")} className="sidebar-menu-item">
-                                Gestionar Inventario
-                            </MenuItem>
+                           
                             <MenuItem icon={<ShoppingCartIcon />} onClick={() => navigate("/listSelect")} className="sidebar-menu-item">
                                 Carrito
                             </MenuItem>
-                            <MenuItem icon={<AdUnitsIcon />} onClick={() => navigate("/inventario/reportes")} className="sidebar-menu-item">
-                                Reportes de Inventario
-                            </MenuItem>
+                            
                         </Menu>
                     </Sidebar>
                 </div>
