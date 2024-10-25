@@ -12,7 +12,7 @@ import { red } from '@mui/material/colors';
 import CarIcon from '@mui/icons-material/AddShoppingCart';
 import Modal from '@mui/material/Modal';
 import { Button, Box, FormControl, TextField, Drawer, Grid } from "@mui/material";
-
+import { useNavigate } from 'react-router-dom';
 import toyota from '../img/toyota.png';  
 import suzuki from '../img/suzuki.png';
 import bmw from '../img/bmw.png';
@@ -40,18 +40,18 @@ const StyledCard = styled(Card)(({ theme }) => ({
     },
 }));
 
-const modalStyle = {
+const style = {
     position: 'absolute',
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
     width: 400,
     bgcolor: 'background.paper',
+    border: '2px solid #000',
     boxShadow: 24,
     p: 4,
-    borderRadius: 8,
-};
-
+  };
+  
 
 const StyledButton = styled(Button)(({ theme }) => ({
     margin: theme.spacing(1),
@@ -64,12 +64,49 @@ const StyledButton = styled(Button)(({ theme }) => ({
     alignItems: 'center', // Centrar el contenido
 }));
 
+const StyledTextField = styled(TextField)(({ theme }) => ({
+    '& .MuiOutlinedInput-root': {
+        '& fieldset': {
+            borderColor: red[500], // Color del borde
+        },
+        '&:hover fieldset': {
+            borderColor: red[700], // Color del borde al pasar el mouse
+        },
+        '&.Mui-focused fieldset': {
+            borderColor: red[900], // Color del borde al enfocar
+        },
+    },
+}));
+
 const MainComponent2 = ({ data, handleOpen, handleClose, open, selectedProductName, handleProductAmount, addToCart, selectCategory }) => {
-    const [drawerOpen, setDrawerOpen] = useState(true); // Estado para controlar la apertura del Drawer
+    const [drawerOpen, setDrawerOpen] = useState(true);
+    const [searchYear, setSearchYear] = useState(""); // Estado para el término de búsqueda de año
+    const [searchSide, setSearchSide] = useState(""); // Estado para el término de búsqueda de lado
+    const [searchName, setSearchName] = useState(""); // Estado para el término de búsqueda de nombre
+    const navigate = useNavigate();
 
     const toggleDrawer = (open) => () => {
         setDrawerOpen(open);
     };
+
+    const handleYearChange = (event) => {
+        setSearchYear(event.target.value);
+    };
+
+    const handleSideChange = (event) => {
+        setSearchSide(event.target.value);
+    };
+
+    const handleNameChange = (event) => {
+        setSearchName(event.target.value);
+    };
+
+    // Filtrar los datos según los términos de búsqueda
+    const filteredData = data.filter((item) => 
+        (item.modelo.toString().includes(searchYear) || searchYear === "") && // Filtrar por año
+        (item.lado.toLowerCase().includes(searchSide.toLowerCase()) || searchSide === "") && // Filtrar por lado
+        (item.nombre.toLowerCase().includes(searchName.toLowerCase()) || searchName === "") // Filtrar por nombre
+    );
 
     const list = () => (
         <Box sx={{ width: 250, padding: '20px', backgroundColor: '#9b1b30' }} role="presentation">
@@ -102,7 +139,6 @@ const MainComponent2 = ({ data, handleOpen, handleClose, open, selectedProductNa
             </Grid>
         </Box>
     );
-
     return (
         <>
             <img className='main-image' src={main} alt="Background" />
@@ -121,69 +157,140 @@ const MainComponent2 = ({ data, handleOpen, handleClose, open, selectedProductNa
                 {list()}
             </Drawer>
 
-            <div className="main" style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', padding: '10px', marginRight: '224px' }}>
-                {data.map((row) => (
-                    <StyledCard key={row.id} >
-                        <CardHeader style={{ margin: 0,color: red[500] }}
-                            avatar={
-                                <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-                                    {row.nombre.charAt(0)} {/* Muestra la inicial del nombre */}
-                                </Avatar>
-                            }
-                            title={row.nombre}
-                        />
-                        <CardMedia
-                            component="img"
-                            height="194"
-                            image={`http://localhost:8000/storage/${row.url_imagen}`}
-                            alt={row.nombre}
-                        />
-                        <CardContent>
-                            <Typography variant="body2" color="text.secondary">
-                                <h3 style={{ margin: 0,color: red[500] }}>CALIDAD: {row.calidad}</h3>
-                                <h3 style={{ margin: 0,color: red[500] }}>AÑO: {row.modelo}</h3>
-                                <h3 style={{ margin: 0,color: red[500] }}>LADO: {row.lado}</h3>
-                                <h3 style={{ margin: 0,color: red[500] }}>MARCA: {row.categoria_id}</h3>
-                                <h3 style={{ margin: 0 ,color: red[500]}}>{row.descripcion}</h3>
-                                <h1 style={{ margin: 0, color: red[500] }}>{row.precio}</h1>
-                            </Typography>
-                        </CardContent>
-                        <CardActions disableSpacing>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '10px', marginRight: '224px' }}>
+                {/* Barra de búsqueda para Año */}
+                <FormControl
+                   variant="outlined"
+                   sx={{
+                      
+                       marginBottom: 2,
+                       width: '300px',
+                       position: 'fixed',
+                       top: '0px',
+                       left: '50%',
+                       transform: 'translateX(-50%)',
+                       zIndex: 1000,
+                   }}>
+                    <StyledTextField
+                    className="login-input nombre-input" 
+                       label="BUSCAR AÑO"
+                       variant="outlined"
+                       value={searchYear}
+                       onChange={handleYearChange} />
+                </FormControl>
+
+                {/* Barra de búsqueda para Lado */}
+                <FormControl
+                   variant="outlined"
+                   sx={{
+                       marginBottom: 2,
+                       width: '300px',
+                       position: 'fixed',
+                       top: '2px',
+                       left: '70%',
+                       transform: 'translateX(-50%)',
+                       zIndex: 1000,
+                      
+                   }}>
+                    <StyledTextField
+                    className="login-input nombre-input" 
+                       label="BUSCAR LADO"
+                       variant="outlined"
+                       value={searchSide}
+                       onChange={handleSideChange} />
+                </FormControl>
+
+                {/* Barra de búsqueda para Nombre */}
+                <FormControl
+                   variant="outlined"
+                   sx={{
+                       marginBottom: 2,
+                       width: '300px',
+                       position: 'fixed',
+                       top: '0px',
+                       left: '30%',
+                       transform: 'translateX(-50%)',
+                       zIndex: 1000,
+                   }}>
+                    <StyledTextField
+                    className="login-input nombre-input" 
+                       label="BUSCAR NOMBRE"
+                       variant="outlined"
+                       value={searchName}
+                       onChange={handleNameChange} />
+                </FormControl>
+
+                <div className="main" style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center',left: '11%', padding: '70px', marginRight: '100px' }}>
+                    {filteredData.length > 0 ? (
+                        filteredData.map((row) => (
+                            <StyledCard key={row.id}>
+                                <CardHeader style={{ margin: 0, color: red[500] }}
+                                    avatar={
+                                        <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+                                            {row.nombre.charAt(0)} {/* Muestra la inicial del nombre */}
+                                        </Avatar>
+                                    }
+                                    title={row.nombre}
+                                />
+                                <CardMedia
+                                    component="img"
+                                    height="194"
+                                    image={`http://localhost:8000/storage/${row.url_imagen}`}
+                                    alt={row.nombre}
+                                />
+                                <CardContent>
+                                    <Typography variant="body2" color="text.secondary">
+                                        <h3 style={{ margin: 0, color: red[500] }}>CALIDAD: {row.calidad}</h3>
+                                        <h3 style={{ margin: 0, color: red[500] }}>AÑO: {row.modelo}</h3>
+                                        <h3 style={{ margin: 0, color: red[500] }}>LADO: {row.lado}</h3>
+                                        <h3 style={{ margin: 0, color: red[500] }}>MARCA: {row.categoria_id}</h3>
+                                        <h3 style={{ margin: 0, color: red[500] }}>{row.descripcion}</h3>
+                                        <h1 style={{ margin: 0, color: red[500] }}>{row.precio}</h1>
+                                    </Typography>
+                                </CardContent>
+                                <CardActions disableSpacing>
                             <IconButton aria-label="add to favorites" onClick={() => handleOpen(row)} style={{ margin: 0 ,color: red[500]}}>
                                 <CarIcon />
                             </IconButton>
                         </CardActions>
-                    </StyledCard>
-                ))}
+                            </StyledCard>
+                        ))
+                    ) : (
+                        <Typography variant="body2" color="text.secondary">
+                            No se encontraron resultados.
+                        </Typography>
+                    )}
+                </div>
             </div>
 
             <Modal
-                open={open}
-                onClose={handleClose}
-                aria-labelledby="modal-modal-title"
-                aria-describedby="modal-modal-description"
-            >
-                <Box sx={modalStyle}>
-                    <Typography variant="h6">{selectedProductName}</Typography>
-                    <form>
-                        <FormControl fullWidth>
-                            <TextField
-                            
-                                type="number"
-                                id="outlined-basic"
-                                label="Cantidad"
-                                variant="outlined"
-                                placeholder="Cantidad"
-                                onChange={handleProductAmount}
-                                sx={{ marginBottom: 2 }}
-                            />
-                            <StyledButton onClick={addToCart} variant="outlined" >
-                                Añadir al carrito
-                            </StyledButton>
-                        </FormControl>
-                    </form>
-                </Box>
-            </Modal>
+                    open={open}
+                    onClose={handleClose}
+                    aria-labelledby="modal-modal-title"
+                    aria-describedby="modal-modal-description"
+                  >
+                     <Box sx={style}>
+                      <h1>{selectedProductName}</h1>
+                     <form>
+                            <FormControl className="login-form-control">
+                                <TextField  
+                                type="Number"
+                                    className="login-input"                                   
+                                    id="outlined-basic" 
+                                    label="Cantidad" 
+                                    variant="outlined" 
+                                    placeholder="Cantidad" 
+                                    onChange={handleProductAmount}
+                                    />
+                                                                    
+                                <Button onClick={addToCart} variant="outlined" >
+                                    Añadir al carrito
+                                </Button>
+                              
+                            </FormControl>
+                        </form>
+                    </Box>
+                  </Modal>
         </>
     );
 };

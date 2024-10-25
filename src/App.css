@@ -423,7 +423,23 @@ h5, h6, p {
 
 
 
+.add-user-buttonn {
+  background-color: #750808;
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: fixed; /* Mantiene el botón en una posición fija */
+  bottom: 20px; /* Distancia desde la parte inferior de la pantalla */
+  right: 250px; /* Distancia desde la parte derecha de la pantalla */
+}
 
+.add-user-buttonn:hover {
+  background-color: #000000;
+  color: rgb(255, 255, 255);
+}
 
 
 
@@ -497,57 +513,16 @@ h5, h6, p {
 
 
 
-
-.category-buttons {
-  display: flex;
-  justify-content: center;
-  margin: 20px 0;
-}
-
-.category-button {
-  margin: 0 10px;
-  background-color: #1976d2;
-  color: #fff;
-}
-
-.category-button:hover {
-  background-color: #115293;
-}
-
-.main {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.card {
-  max-width: 345px;
-  margin: 20px;
-}
-
-.modal-box {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 400px;
-  background-color: white;
-  box-shadow: 24px;
-  padding: 20px;
-}
-
-
-
-
-
-
-
-.carr{
-  background-color: #009e72;
-}
-
 .brand-image {
   width: 60px; /* Ajusta el tamaño de las imágenes de marca */
   height: 43px; /* Ajusta el tamaño de las imágenes de marca */
   margin-right: 0px; /* Espaciado entre la imagen y el número */
+}
+
+
+.pro-input {
+  margin-bottom: 15px;
+  width: 100%;
+  background-color: #000000;
+  color: #009e72;
 }

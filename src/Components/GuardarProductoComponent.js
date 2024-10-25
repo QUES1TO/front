@@ -7,9 +7,10 @@ import AirplanemodeInactiveIcon from '@mui/icons-material/AirplanemodeInactive';
 import FormControl from '@mui/material/FormControl';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import main from '../img/eh.avif';  // Ruta a la imagen de fondo
-
+import { useNavigate } from 'react-router-dom';
 
 const GuardarProductComponent = ({
+    
     handleNombreChange,
     handleCalidadChange,
     handleModeloChange,
@@ -22,7 +23,7 @@ const GuardarProductComponent = ({
     handleChangeCategoria,
     handleSaveData
 }) => {
-      
+    const navigate = useNavigate();
     return (
         <>
         <body className="main">
@@ -129,7 +130,9 @@ const GuardarProductComponent = ({
                
                     <button onClick={handleSaveData} variant="outlined"  className="add-user-button">CREAR PRODUCTO</button>
                     <div>
-                       
+                    <button className="add-user-buttonn" onClick={() => navigate("/produco")}>
+                ATRAS
+            </button>
                     </div>
             </body>
         </>
