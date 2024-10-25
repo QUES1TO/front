@@ -69,10 +69,10 @@ const MainComponent3 = ({data,handleEdit,handleDelete}) => {
       <TableCell align="right">{row.precio}</TableCell>
       <TableCell align="right">{row.categoria_id}</TableCell>
       <TableCell align="right">
-        <IconButton onClick={() => handleEdit(row.id)} sx={{ color: '#1976d2' }}>
+        <IconButton onClick={() => handleEdit(row)} sx={{ color: '#1976d2' }}>
           <EditIcon />
         </IconButton>
-        <IconButton onClick={() => handleDelete(row.id)} sx={{ color: '#d32f2f' }}>
+        <IconButton onClick={() => handleDelete(row)} sx={{ color: '#d32f2f' }}>
           <DeleteIcon />
         </IconButton>
       </TableCell>

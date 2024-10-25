@@ -9,90 +9,155 @@ import { MuiFileInput } from "mui-file-input";
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
-
+import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
-const EditProductComponent = ({productNameValue,
-                            handleProductNameChange,
-                            productStockValue,
-                            handleProductStockChange,
-                            productPriceValue,
-                            handleProductPriceChange,
-                            previewImageValue,
-                            handleUrlImageChange,
-                            categoryList,
-                            CategoriaId,
-                            handleChangeCategoryId,
-                            handleSaveData}) => {
+const EditProductComponent = ({
+    handleNombreChange,
+    handleCalidadChange,
+    handleModeloChange,
+    handleStockChange,
+    handleLadoChange,
+    handleDescripcionChange,
+    handlePrecioChange,
+    previewImagenValue,
+    handleUrlImagenChange,
+    handleChangeCategoria,
+    
+    handleSaveData
+                        }) => {
         
     return (
         <>
-            <div className="card-container">
-                <Card>
+        <body className="main">
+
+        
+            <div className="">
+
+                <Card id="crearproducto">
                     <CardContent>
-                        <h1>Editar producto</h1>
+                        <h1 className="h1crear">editar Producto</h1>
                         <form>
-                            <FormControl className="login-form-control">
+                            <FormControl className="Guardar-form-control">
                                 <TextField  
                                     className="login-input"                                   
                                     id="outlined-basic" 
-                                    label="Nombre de producto" 
+                                    label="Nombre" 
                                     variant="outlined" 
-                                    placeholder="Introduzca el nuevo nombre" 
-                                    error={false} 
-                                    value={productNameValue}
-                                    onChange={handleProductNameChange}
-                                    />
+                                    placeholder="Introduzca el nombre del producto" 
                                     
+                                    onChange={handleNombreChange}/>
+                                    
+                                    <div>
+
+                                    </div>
                                 <TextField  
+                                    className="login-input"                                   
+                                    id="outlined-basic" 
+                                    label="calidad" 
+                                    variant="outlined" 
+                                    placeholder="Introduzca la calidad"                                  
+                                    onChange={handleCalidadChange}/>
+                                
+                                    <div>
+
+                                    </div>
+                                <TextField  
+                                    className="login-input"                         
+                                    id="outlined-basic" 
+                                    label="modelo" 
+                                    variant="outlined" 
+                                    placeholder="Introduzca el modelo de año" 
+                                    onChange={handleModeloChange}/>
+                                 
+                                    <div>
+
+                                    </div>
+
+                                    <TextField  
                                     className="login-input"  
-                                    type="number"                                  
+                                                                     
+                                    id="outlined-basic" 
+                                    label="lado" 
+                                    variant="outlined" 
+                                    placeholder="frente atras lateral" 
+                                    onChange={handleLadoChange}/>
+                                 
+                                    <div>
+
+                                    </div>
+                                 <TextField  
+                                    className="login-input"  
+                                    type="file"                                
+                                    id="outlined-basic" 
+                                  
+                                    variant="outlined" 
+                                    placeholder="imagen" 
+                                    onChange={handleUrlImagenChange}/>
+                                 
+                                    
+                                    <div>
+
+                                    </div>
+                                    <TextField  
+                                    className="login-input"  
+                                                                    
+                                    id="outlined-basic" 
+                                    label="stock" 
+                                    variant="outlined" 
+                                    placeholder="escriba el numero de stock" 
+                                    onChange={handleStockChange}/>
+                                 
+                                    <div>
+
+
+                                    </div>
+
+                    
+                                    <TextField  
+                                    className="login-input"  
+                                    //type="text"                               
+                                    id="outlined-basic" 
+                                    label="descripcion" 
+                                    variant="outlined" 
+                                    placeholder="Introduzca la descripcion" 
+                                    onChange={handleDescripcionChange}/>
+                                 
+                                    <div>
+
+                                    </div>
+                                    <TextField  
+                                    className="login-input"  
+                                    //type="text"                               
                                     id="outlined-basic" 
                                     label="Precio" 
                                     variant="outlined" 
-                                    placeholder="Introduzca el nuevo precio" 
-                                    error={false} 
-                                    value={productPriceValue}
-                                    onChange={handleProductPriceChange}
-                                    />
-                                <TextField  
+                                    placeholder="escriba el precio" 
+                                    onChange={handlePrecioChange}/>
+                                 
+                                    <div>
+                                    </div>
+                                    <TextField  
                                     className="login-input"  
-                                    type="number"                                  
+                                    //type="text"                               
                                     id="outlined-basic" 
-                                    label="Stock" 
+                                    label="Tipo(pulsar,boxer)" 
                                     variant="outlined" 
-                                    placeholder="Introduzca el nuevo stock" 
-                                    error={false} 
-                                    value={productStockValue}
-                                    onChange={handleProductStockChange}
-                                    />
-                                <Box className="login-input">
-                                    <FormControl fullWidth>
-                                        <InputLabel id="demo-simple-select-label">Categoria</InputLabel>
-                                        <Select
-                                        labelId="demo-simple-select-label"
-                                        id="demo-simple-select"
-                                        value={CategoriaId}
-                                        label="Age"
-                                        onChange={handleChangeCategoryId}
-                                        >
-                                            {categoryList.map((row) => (
-                                                <MenuItem value={row.id}>{row.nombre}</MenuItem>
-                                            ))}
-                                        
-                                        </Select>
-                                    </FormControl>
-                                </Box>
-                                    <img className="product-image-preview" src={previewImageValue}/>
-                                    <MuiFileInput value={previewImageValue} onChange={handleUrlImageChange}/>
-                                <Button  onClick={handleSaveData} variant="outlined" startIcon={<AirplanemodeInactiveIcon />}>
-                                    Ingresar
+                                    placeholder="Introduzca numero de tipo" 
+                                    onChange={handleChangeCategoria}/>
+                                 
+                                    <div>
+
+                                    </div>
+                                    
+                                <Button onClick={handleSaveData} variant="outlined" startIcon={<PeopleAltIcon />}>
+                                    editar producto
                                 </Button>
                             </FormControl>
                         </form>
                     </CardContent>
-                    
                 </Card>
             </div>
+            </body>
         </>
     );
 }

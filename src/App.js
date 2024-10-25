@@ -17,6 +17,8 @@ import InicioComponentController from "./ComponentControllers/InicioComponentCon
 import NosotrosComponentController from "./ComponentControllers/NosotrosComponentController";
 import ProductoComponentController from "./ComponentControllers/ProductoComponentController";
 import NoticiasComponentController from "./ComponentControllers/NoticiasComponentController";
+import DeleteProductComponentController from "./ComponentControllers/DeleteProductComponentController";
+
 
 import auth from "./Auth/auth";
 const App = () => {
@@ -85,7 +87,7 @@ const App = () => {
             
           <Route element={<PrivateRoutes/>}>
             <Route path='/home' Component={MainComponentController}/>   
-           
+            <Route path='/delete/:id' Component={DeleteProductComponentController}/>
             <Route path='/edit/:id' Component={EditProductComponentController}/>
             <Route path='/perfil' Component={ProfileComponentController}/>
             <Route path='/produco' Component={MainComponentController2}/>

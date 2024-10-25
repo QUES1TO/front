@@ -434,6 +434,7 @@ h5, h6, p {
   position: fixed; /* Mantiene el botón en una posición fija */
   bottom: 20px; /* Distancia desde la parte inferior de la pantalla */
   right: 250px; /* Distancia desde la parte derecha de la pantalla */
+  z-index: 9999; /* Asegura que el botón esté por encima de otros elementos */
 }
 
 .add-user-buttonn:hover {

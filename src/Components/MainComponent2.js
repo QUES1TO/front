@@ -15,6 +15,7 @@ import { Button, Box, FormControl, TextField, Drawer, Grid } from "@mui/material
 import { useNavigate } from 'react-router-dom';
 import toyota from '../img/toyota.png';  
 import suzuki from '../img/suzuki.png';
+import { Link } from "react-router-dom";
 import bmw from '../img/bmw.png';
 import nissan from '../img/nissan.png';
 import ford from '../img/ford.png';
@@ -141,6 +142,9 @@ const MainComponent2 = ({ data, handleOpen, handleClose, open, selectedProductNa
     );
     return (
         <>
+        <Link to="/nuevoproducto">
+                    <button className="add-user-buttonn">AGREGAR NUEVO PRODUCTO</button>
+                </Link>
             <img className='main-image' src={main} alt="Background" />
             <Drawer
                 anchor="right"
@@ -294,6 +298,7 @@ const MainComponent2 = ({ data, handleOpen, handleClose, open, selectedProductNa
                             </FormControl>
                         </form>
                     </Box>
+                    
                   </Modal>
         </>
     );

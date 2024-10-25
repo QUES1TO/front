@@ -94,12 +94,12 @@ const guardarRepuesto = (data) =>{
 }
 
 
-const productoo = (nombre,cc,modelo,marca,url_imagen,stock,descripcion,precio,categoria_id) => {
+const productoo = (nombre,caliad,modelo,lado,url_imagen,stock,descripcion,precio,categoria_id) => {
     const body = JSON.stringify({
         nombre: nombre,
-        cc: cc,
+        caliad: caliad,
         modelo: modelo,
-        marca: marca,
+        lado: lado,
         url_imagen: url_imagen,
         stock: stock,
         descripcion: descripcion,
