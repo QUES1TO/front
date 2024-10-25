@@ -86,6 +86,7 @@ const App = () => {
           </Route>    
           <Route path='/guardar' Component={GuardarComponentController}/> 
           <Route path='/nuevoproducto' Component={GuardarProductoComponentController}/>
+          
           <Route element={<PrivateSellerRoutes/>}>
              
             
