@@ -4,8 +4,8 @@ import Button from "@mui/material/Button";
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import FormControl from '@mui/material/FormControl';
-import login from '../img/login.jpg';  // Ruta a la imagen de fondo
-
+import main from '../img/eh.avif';  // Ruta a la imagen de fondo
+import { useNavigate } from 'react-router-dom';
 const GuardarComponent = ({
     handleNameChange,
     handleEmailChange,
@@ -27,26 +27,20 @@ const GuardarComponent = ({
 
     authenticate
 }) => {
+    const navigate = useNavigate();
     return (
-        <div className="login-container">
-            <img className='background-image' src={login} alt="Background" />
-            <div className="card-container slide-in"> {/* Mantén la animación de entrada */}
-                <Card style={{
-                    backgroundColor: 'rgba(255, 255, 255, 0.2)',
-                    borderRadius: '10px', // Bordes redondeados
-                    padding: '3px', // Grosor del borde
-                    border: '5px solid', // Ancho del borde
-                    borderImageSlice: 1, // Cortar la imagen de borde
-                    borderImageSource: 'linear-gradient(45deg, #5b0b0b, #434343, #000000, #5b0b0b)' // Degradado del borde
-                }}>
+        <div className="main">
+            <img className='main-image' src={main} alt="Background" />
+            <div className=""> {/* Mantén la animación de entrada */}
+                <Card id="crearproducto">
                     <CardContent>
-                        <h1 style={{ color: 'white', marginTop: '20px' }}>
+                        <h1 className="crear-producto-title">
                             REGISTRAR NUEVO USUARIO
                         </h1>
                         <form>
-                            <FormControl className="login-form-control">
+                            <FormControl className="custom-table">
                                 <TextField
-                                    className="login-input"
+                                    className="login-input nombre-input"
                                     id="name"
                                     label="Nombre"
                                     variant="outlined"
@@ -58,7 +52,7 @@ const GuardarComponent = ({
                                 {nameErrorState && <FormHelperText error>{nameErrorMessage}</FormHelperText>}
                                
                                 <TextField
-                                    className="login-input"
+                                    className="login-input nombre-input"
                                     id="email"
                                     label="Email"
                                     variant="outlined"
@@ -70,7 +64,7 @@ const GuardarComponent = ({
                                 {emailErrorState && <FormHelperText error>{emailErrorMessage}</FormHelperText>}
                                 <br />
                                 <TextField
-                                    className="login-input"
+                                    className="login-input nombre-input"
                                     type="password"
                                     id="password"
                                     label="Contraseña"
@@ -89,24 +83,9 @@ const GuardarComponent = ({
                                 >
                                     Registrar
                                 </Button>
-                                <Button
-                                    component="a" // Usa 'a' como componente
-                                    href="/login" // Ruta a la que redirigir
-                                    style={{
-                                        marginTop: '10px',
-                                        color: '#510501',
-                                        border: 'none',
-                                        textDecoration: 'none', // Elimina subrayado
-                                        background: 'none', // Sin fondo
-                                        display: 'flex',
-                                        justifyContent: 'center',
-                                        alignItems: 'center',
-                                    }}
-                                    variant="text"
-                                    fullWidth
-                                >
-                                    <span style={{ color: '#510501' }}>¿Ya tienes cuenta? Inicia sesión</span>
-                                </Button>
+                                <button className="add-user-buttonn" onClick={() => navigate("/home")}>
+                ATRAS
+            </button>
                             </FormControl>
                         </form>
                     </CardContent>
